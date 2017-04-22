@@ -1,0 +1,48 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from MercanciaWSService WSDL service -->
+
+  <service name="MercanciaWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ms.utng.edu.mx"/>
+      <parameter name="wsdlServiceElement" value="MercanciaWSService"/>
+      <parameter name="schemaQualified" value="http://ms.utng.edu.mx"/>
+      <parameter name="wsdlServicePort" value="MercanciaWS"/>
+      <parameter name="className" value="mx.edu.utng.ms.MercanciaWSSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="MercanciaWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="addMercancia" qname="operNS:addMercancia" xmlns:operNS="http://ms.utng.edu.mx" returnQName="retNS:addMercanciaReturn" xmlns:retNS="http://ms.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:mercancia" xmlns:pns="http://ms.utng.edu.mx" type="tns:Mercancia" xmlns:tns="http://ms.utng.edu.mx"/>
+      </operation>
+      <operation name="editMercancia" qname="operNS:editMercancia" xmlns:operNS="http://ms.utng.edu.mx" returnQName="retNS:editMercanciaReturn" xmlns:retNS="http://ms.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:mercancia" xmlns:pns="http://ms.utng.edu.mx" type="tns:Mercancia" xmlns:tns="http://ms.utng.edu.mx"/>
+      </operation>
+      <operation name="getMercanciaById" qname="operNS:getMercanciaById" xmlns:operNS="http://ms.utng.edu.mx" returnQName="retNS:getMercanciaByIdReturn" xmlns:retNS="http://ms.utng.edu.mx" returnType="rtns:Mercancia" xmlns:rtns="http://ms.utng.edu.mx" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ms.utng.edu.mx" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="removeMercancia" qname="operNS:removeMercancia" xmlns:operNS="http://ms.utng.edu.mx" returnQName="retNS:removeMercanciaReturn" xmlns:retNS="http://ms.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ms.utng.edu.mx" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getMercancias" qname="operNS:getMercancias" xmlns:operNS="http://ms.utng.edu.mx" returnQName="retNS:getMercanciasReturn" xmlns:retNS="http://ms.utng.edu.mx" returnType="rtns:Mercancia" xmlns:rtns="http://ms.utng.edu.mx" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="getMercancias addMercancia removeMercancia getMercanciaById editMercancia"/>
+
+      <typeMapping
+        xmlns:ns="http://ms.utng.edu.mx"
+        qname="ns:Mercancia"
+        type="java:mx.edu.utng.ms.Mercancia"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

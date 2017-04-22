@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ms.utng.edu.mx" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ms.utng.edu.mx" xmlns:intf="http://ms.utng.edu.mx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ms.utng.edu.mx" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="addMercancia">
+    <complexType>
+     <sequence>
+      <element name="mercancia" type="impl:Mercancia"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Mercancia">
+    <sequence>
+     <element name="id" type="xsd:int"/>
+     <element name="impuesto" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <element name="addMercanciaResponse">
+    <complexType>
+     <sequence>
+      <element name="addMercanciaReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="editMercancia">
+    <complexType>
+     <sequence>
+      <element name="mercancia" type="impl:Mercancia"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="editMercanciaResponse">
+    <complexType>
+     <sequence>
+      <element name="editMercanciaReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMercanciaById">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMercanciaByIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getMercanciaByIdReturn" type="impl:Mercancia"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeMercancia">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeMercanciaResponse">
+    <complexType>
+     <sequence>
+      <element name="removeMercanciaReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMercancias">
+    <complexType/>
+   </element>
+   <element name="getMercanciasResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getMercanciasReturn" type="impl:Mercancia"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getMercanciasResponse">
+
+      <wsdl:part element="impl:getMercanciasResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addMercanciaResponse">
+
+      <wsdl:part element="impl:addMercanciaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addMercanciaRequest">
+
+      <wsdl:part element="impl:addMercancia" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeMercanciaResponse">
+
+      <wsdl:part element="impl:removeMercanciaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMercanciaByIdResponse">
+
+      <wsdl:part element="impl:getMercanciaByIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="editMercanciaResponse">
+
+      <wsdl:part element="impl:editMercanciaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeMercanciaRequest">
+
+      <wsdl:part element="impl:removeMercancia" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="editMercanciaRequest">
+
+      <wsdl:part element="impl:editMercancia" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMercanciaByIdRequest">
+
+      <wsdl:part element="impl:getMercanciaById" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMercanciasRequest">
+
+      <wsdl:part element="impl:getMercancias" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="MercanciaWS">
+
+      <wsdl:operation name="addMercancia">
+
+         <wsdl:input message="impl:addMercanciaRequest" name="addMercanciaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addMercanciaResponse" name="addMercanciaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="editMercancia">
+
+         <wsdl:input message="impl:editMercanciaRequest" name="editMercanciaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:editMercanciaResponse" name="editMercanciaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMercanciaById">
+
+         <wsdl:input message="impl:getMercanciaByIdRequest" name="getMercanciaByIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getMercanciaByIdResponse" name="getMercanciaByIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeMercancia">
+
+         <wsdl:input message="impl:removeMercanciaRequest" name="removeMercanciaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeMercanciaResponse" name="removeMercanciaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMercancias">
+
+         <wsdl:input message="impl:getMercanciasRequest" name="getMercanciasRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getMercanciasResponse" name="getMercanciasResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="MercanciaWSSoapBinding" type="impl:MercanciaWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addMercancia">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addMercanciaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addMercanciaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="editMercancia">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="editMercanciaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="editMercanciaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMercanciaById">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getMercanciaByIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getMercanciaByIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeMercancia">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeMercanciaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeMercanciaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMercancias">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getMercanciasRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getMercanciasResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="MercanciaWSService">
+
+      <wsdl:port binding="impl:MercanciaWSSoapBinding" name="MercanciaWS">
+
+         <wsdlsoap:address location="http://localhost:8080/WSMercancia/services/MercanciaWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
